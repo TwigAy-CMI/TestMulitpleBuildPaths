@@ -4,5 +4,5 @@
     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
   with:
-    projectPath: path/to/your/project
+    projectPath: C:\Users\charles.ay\Documents\TestMulitpleBuildPaths
     githubToken: ${{ secrets.GITHUB_TOKEN }}
