@@ -1,0 +1,3 @@
+This is for forcing it to test. 
+
+Trial 3: Fixing .gitignore file
