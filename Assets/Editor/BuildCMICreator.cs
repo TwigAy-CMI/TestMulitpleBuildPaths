@@ -68,6 +68,9 @@ namespace UnityBuilderAction
                 case BuildTarget.StandaloneOSX:
                     PlayerSettings.SetScriptingBackend(BuildTargetGroup.Standalone, ScriptingImplementation.Mono2x);
                     break;
+                case BuildTarget.WebGL:
+                    PlayerSettings.SetScriptingBackend(BuildTargetGroup.WebGL, ScriptingImplementation.IL2CPP);
+                    break;
             }
 
             // Determine subtarget
