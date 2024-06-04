@@ -32,6 +32,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
+          buildMethod: UnityEditor.BuildCMICreator.Build
           targetPlatform: WebGL
           allowDirtyBuild: true
 
