@@ -12,6 +12,8 @@ jobs:
         with:
           lfs: true
 
+      - run: rm -rf /opt/hostedtoolcache
+
       # Test
       - name: Run tests
         uses: game-ci/unity-test-runner@v4
