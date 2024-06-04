@@ -1,8 +1,12 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
+using UnityEditor;
+using UnityEditor.Build.Reporting;
 
-namespace UnityEditor
+namespace UnityBuilderAction
 {
     public static class BuildCMICreator
     {
@@ -26,7 +30,8 @@ namespace UnityEditor
             }
 
             EditorBuildSettings.scenes = newSceneList.ToArray();
-
+            //PlayerSettings.WebGL
+            
         }
     }
 }
