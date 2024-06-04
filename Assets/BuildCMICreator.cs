@@ -11,15 +11,21 @@ namespace UnityEditor
         "Assets/Scenes/Test.unity"};
         public static void Build()
         {
-
+            List<EditorBuildSettingsScene> newSceneList = new();
             foreach (var s in EditorBuildSettings.scenes)
             {
                 if (m_arrBuildPaths.Exists(q => q == s.path))
-                    s.enabled = true;
+                {
+                    newSceneList.Add(new EditorBuildSettingsScene(s.path, true));
+                }
                 else
-                    s.enabled = false;
+                {
+                    Debug.Log(s.path + " Disabled");
+                    newSceneList.Add(new EditorBuildSettingsScene(s.path, false));
+                }
             }
-            
+
+            EditorBuildSettings.scenes = newSceneList.ToArray();
 
         }
     }
