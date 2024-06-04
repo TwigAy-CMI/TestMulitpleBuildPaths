@@ -33,7 +33,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          buildMethod: UnityBuilderAction.BuildCMICreator.Build
+          buildMethod: UnityBuilderAction.BuildScript.Build
           allowDirtyBuild: true
 
       # Output
