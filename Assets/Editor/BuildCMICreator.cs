@@ -14,6 +14,12 @@ namespace UnityBuilderAction
         private static readonly string[] Secrets =
             {"androidKeystorePass", "androidKeyaliasName", "androidKeyaliasPass"};
 
+        private static readonly string[] m_scenePaths =
+        {
+            "Assets/Scenes/SampleScene.unity",
+            "Assets/Scenes/Test.unity"
+        };
+
         public static void Build()
         {
             // Gather values from args
@@ -70,6 +76,18 @@ namespace UnityBuilderAction
                     break;
                 case BuildTarget.WebGL:
                     PlayerSettings.SetScriptingBackend(BuildTargetGroup.WebGL, ScriptingImplementation.IL2CPP);
+                    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
+                    List<EditorBuildSettingsScene> m_editorBuildSettingsScenes = new();
+                    foreach(var s in EditorBuildSettings.scenes)
+                    {
+                        foreach (var path in m_scenePaths)
+                        {
+                            if (s.path == path)
+                                m_editorBuildSettingsScenes.Add(new EditorBuildSettingsScene(path, true));
+                            else
+                                m_editorBuildSettingsScenes.Add(new EditorBuildSettingsScene(path, false));
+                        }
+                    }
                     break;
             }
 
