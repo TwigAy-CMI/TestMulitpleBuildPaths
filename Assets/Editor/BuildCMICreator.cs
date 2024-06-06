@@ -79,6 +79,7 @@ namespace UnityBuilderAction
                     PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
                     PlayerSettings.WebGL.decompressionFallback = true;
                     PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.FullWithStacktrace;
+                    PlayerSettings.WebGL.dataCaching = false;
                     List<EditorBuildSettingsScene> m_editorBuildSettingsScenes = new();
                     foreach (var s in EditorBuildSettings.scenes)
                     {
