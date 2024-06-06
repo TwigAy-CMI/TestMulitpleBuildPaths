@@ -7,7 +7,7 @@ using UnityEditor.Build.Reporting;
 
 namespace UnityBuilderAction
 {
-    public static class BuildCreator
+    public static class BuildLoader
     {
         private static readonly string Eol = Environment.NewLine;
 
@@ -16,8 +16,8 @@ namespace UnityBuilderAction
 
         private static readonly List<string> m_scenePaths = new()
         {
-            "Assets/Scenes/SampleScene.unity",
-            "Assets/Scenes/Test.unity"
+            "Assets/Scenes/Loader.unity",
+            "Assets/Scenes/TestScene2.unity"
         };
 
         public static void Build()
