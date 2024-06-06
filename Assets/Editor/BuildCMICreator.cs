@@ -76,7 +76,8 @@ namespace UnityBuilderAction
                     break;
                 case BuildTarget.WebGL:
                     PlayerSettings.SetScriptingBackend(BuildTargetGroup.WebGL, ScriptingImplementation.IL2CPP);
-                    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
+                    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+                    PlayerSettings.WebGL.decompressionFallback = true;
                     List<EditorBuildSettingsScene> m_editorBuildSettingsScenes = new();
                     foreach (var s in EditorBuildSettings.scenes)
                     {
@@ -86,7 +87,18 @@ namespace UnityBuilderAction
                             m_editorBuildSettingsScenes.Add(new EditorBuildSettingsScene(s.path, false));
 
                     }
+
+                    foreach (var c in m_editorBuildSettingsScenes)
+                        UnityEngine.Debug.Log(c.path);
+
                     EditorBuildSettings.scenes = m_editorBuildSettingsScenes.ToArray();
+
+                    foreach (var s in EditorBuildSettings.scenes)
+                    {
+                        UnityEngine.Debug.Log("Build Scenes "+ s.path + " is On " + s.enabled);
+
+                    }
+
                     m_editorBuildSettingsScenes.Clear();
                     break;
             }

@@ -76,7 +76,8 @@ namespace UnityBuilderAction
                     break;
                 case BuildTarget.WebGL:
                     PlayerSettings.SetScriptingBackend(BuildTargetGroup.WebGL, ScriptingImplementation.IL2CPP);
-                    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
+                    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+                    PlayerSettings.WebGL.decompressionFallback = true;
                     List<EditorBuildSettingsScene> m_editorBuildSettingsScenes = new();
                     foreach (var s in EditorBuildSettings.scenes)
                     {
