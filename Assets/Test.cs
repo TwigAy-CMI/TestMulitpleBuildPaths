@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class TestScript : MonoBehaviour
+
+
+public class Test : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-       // UnityBuilderAction.BuildCMICreator.Build();
+        //UnityBuilderAction.TestBuildScripts.Build();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
